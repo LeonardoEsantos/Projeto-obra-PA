@@ -1,6 +1,5 @@
 package com.projeto.obra.entities;
 
-import java.math.BigInteger;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ public class Inspecao {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private BigInteger id;
+    private Integer id;
     @ManyToOne
     private ObraInspecao obraInspecaoId;
     private Date data;
@@ -23,11 +22,11 @@ public class Inspecao {
     public Inspecao() {
     }
 
-    public BigInteger getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

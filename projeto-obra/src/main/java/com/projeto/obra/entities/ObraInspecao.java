@@ -1,7 +1,5 @@
 package com.projeto.obra.entities;
 
-import java.math.BigInteger;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,7 +13,7 @@ public class ObraInspecao {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private BigInteger id;
+    private Integer id;
     @ManyToOne
     private Obra obraId;
     @Enumerated(EnumType.STRING)
@@ -30,12 +28,12 @@ public class ObraInspecao {
     }
 
 
-    public BigInteger getId() {
+    public Integer getId() {
         return id;
     }
 
 
-    public void setId(BigInteger id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -1,6 +1,5 @@
 package com.projeto.obra.entities;
 
-import java.math.BigInteger;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +10,9 @@ import javax.persistence.Id;
 public class Obra {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private BigInteger id;
+    private Integer id;
     private String  nome;
-    private BigInteger anoConstrucao;
+    private Integer anoConstrucao;
     private String coordenacao;
     private String diretoria;
     private String outorga;
@@ -23,10 +22,10 @@ public class Obra {
     public Obra() {
     }
 
-    public BigInteger getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(BigInteger id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getNome() {
@@ -35,10 +34,10 @@ public class Obra {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public BigInteger getAnoConstrucao() {
+    public Integer getAnoConstrucao() {
         return anoConstrucao;
     }
-    public void setAnoConstrucao(BigInteger anoConstrucao) {
+    public void setAnoConstrucao(Integer anoConstrucao) {
         this.anoConstrucao = anoConstrucao;
     }
     public String getCoordenacao() {
