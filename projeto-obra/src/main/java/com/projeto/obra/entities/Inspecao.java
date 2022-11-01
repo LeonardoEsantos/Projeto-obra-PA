@@ -1,4 +1,4 @@
-package com.projeto.obra.entitys;
+package com.projeto.obra.entities;
 
 import java.math.BigInteger;
 import java.util.Date;
