@@ -1,6 +1,7 @@
 package com.projeto.obra.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 //import com.projeto.obra.DTO.ObraDetalhesTecnicosDto;
@@ -22,19 +24,27 @@ public class ObraDetalhesTecnicosController {
     @Autowired
     ObraDetalhesTecnicosRepository obraDetalhesTecnicosRepository;
 
-    @PostMapping
+   /*  @PostMapping
     public @ResponseBody ObraDetalhesTecnicos AddDetalhesTecnicos(
             @RequestBody ObraDetalhesTecnicos obraDetalhesTecnicos) {
 
                 ObraDetalhesTecnicos novaObraDetalhesTecnicos = new ObraDetalhesTecnicos();
 
-                novaObraDetalhesTecnicos.setId(obraDetalhesTecnicos.getId());
+                novaObraDetalhesTecnicos.setObraId(obraDetalhesTecnicos.getObraId());
                 novaObraDetalhesTecnicos.setRisco(obraDetalhesTecnicos.getRisco());
                 novaObraDetalhesTecnicos.setTipo(obraDetalhesTecnicos.getTipo());
 
                 obraDetalhesTecnicosRepository.save(novaObraDetalhesTecnicos);
 
         return novaObraDetalhesTecnicos;
+    }*/
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ObraDetalhesTecnicos aDetalhesTecnicos(
+        @RequestBody ObraDetalhesTecnicos obraDetalhesTecnicos
+    ){
+        return obraDetalhesTecnicosRepository.save(obraDetalhesTecnicos);
     }
 
     @GetMapping

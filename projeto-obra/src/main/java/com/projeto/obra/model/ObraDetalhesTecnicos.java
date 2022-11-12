@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -14,7 +15,8 @@ public class ObraDetalhesTecnicos {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    @OneToOne
+    @OneToOne //Isso aq teria q virar integer??
+    @JoinColumn(name = "obra_id_id", referencedColumnName = "id")
     private Obra obraId;
     @Enumerated(EnumType.STRING)
     private ObraTipo tipo;
