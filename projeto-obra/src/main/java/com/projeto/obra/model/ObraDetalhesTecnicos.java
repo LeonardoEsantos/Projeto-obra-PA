@@ -6,7 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class ObraDetalhesTecnicos {
@@ -14,8 +14,8 @@ public class ObraDetalhesTecnicos {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    @ManyToOne
-    private Obra obraID;
+    @OneToOne
+    private Obra obraId;
     @Enumerated(EnumType.STRING)
     private ObraTipo tipo;
     @Enumerated(EnumType.STRING)
@@ -32,12 +32,12 @@ public class ObraDetalhesTecnicos {
         this.id = id;
     }
 
-    public Obra getObraID() {
-        return obraID;
+    public Obra getObraId() {
+        return obraId;
     }
 
-    public void setObraID(Obra obraID) {
-        this.obraID = obraID;
+    public void setObraId(Obra obraID) {
+        this.obraId = obraID;
     }
 
     public ObraTipo getTipo() {

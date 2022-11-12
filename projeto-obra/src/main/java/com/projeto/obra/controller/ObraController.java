@@ -22,30 +22,40 @@ public class ObraController {
     ObraRepository obraRepository;
 
     @PostMapping
-    public @ResponseBody Obra AddObra(@RequestBody Obra obra){
+    public @ResponseBody Obra AddObra(
+            @RequestBody Obra obra) {
+
         Obra novaObra = new Obra();
+
         novaObra.setNome(obra.getNome());
         novaObra.setAnoConstrucao(obra.getAnoConstrucao());
         novaObra.setCoordenacao(obra.getCoordenacao());
         novaObra.setDiretoria(obra.getDiretoria());
         novaObra.setOutorga(obra.getOutorga());
         novaObra.setTitularidade(obra.getTitularidade());
+        
         return obraRepository.save(novaObra);
     }
 
     @GetMapping
-    public Iterable<Obra> ListarObras(){
+    public Iterable<Obra> ListarObras() {
+
         Iterable<Obra> obras = obraRepository.findAll();
         return obras;
     }
 
     @GetMapping(path = "/{id}")
-    public @ResponseBody Object LocalizarObraPorId(@PathVariable("id") String id){
+    public @ResponseBody Object LocalizarObraPorId(
+            @PathVariable("id") String id) {
+
         return obraRepository.findById(Integer.valueOf(id)).get();
     }
 
     @PutMapping(path = "/{id}")
-    public @ResponseBody String AtualizarObra(@PathVariable("id") String id, @RequestBody Obra obra){
+    public @ResponseBody String AtualizarObra(
+            @PathVariable("id") String id,
+            @RequestBody Obra obra) {
+
         Obra obraAtt = obraRepository.findById(Integer.valueOf(id)).get();
 
         obraAtt.setNome(obra.getNome());
@@ -56,20 +66,17 @@ public class ObraController {
         obraAtt.setTitularidade(obra.getTitularidade());
 
         obraRepository.save(obraAtt);
-        
-        return "Obra "+obraAtt.getId() +" Atualizada";
+
+        return "Obra " + obraAtt.getId() + " Atualizada";
     }
 
     @DeleteMapping(path = "/{id}")
-    public @ResponseBody String DeletarObra(@PathVariable("id") String id){
+    public @ResponseBody String DeletarObra(
+            @PathVariable("id") String id) {
+
         Obra obraDel = obraRepository.findById(Integer.valueOf(id)).get();
         obraRepository.delete(obraDel);
-        return "Obra "+obraDel.getId()+" deletada";
+        return "Obra " + obraDel.getId() + " deletada";
     }
 
-
-
-
-
-    
 }
