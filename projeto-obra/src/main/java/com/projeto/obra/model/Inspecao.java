@@ -1,4 +1,4 @@
-package com.projeto.obra.entities;
+package com.projeto.obra.model;
 
 import java.util.Date;
 
